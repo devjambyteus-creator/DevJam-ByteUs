@@ -1,5 +1,5 @@
 pragma solidity ^0.8.24;
- 
+
  import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 contract Body_Examine is ERC721Enumerable {
@@ -53,8 +53,8 @@ contract Body_Examine is ERC721Enumerable {
 
     address public owner;
 
-    constructor() ERC721("MedicalCoin", "MEDC") public {
-        owner = 0x34d8bC94989BbE14BCfd98E0550201ba4970B776; // Address of Doctor
+    constructor() ERC721("MedicalCoin", "MEDC")  {
+        owner = msg.sender;// Address of Doctor
     }
 
     // modifier to give access only to doctor
@@ -76,6 +76,7 @@ contract Body_Examine is ERC721Enumerable {
         return totalSupply(); // available because we inherit ERC721Enumerable
     }
 
+    
     function medical_record(uint256 patient_id) public {
         _mint(msg.sender, patient_id);
 
@@ -83,6 +84,7 @@ contract Body_Examine is ERC721Enumerable {
         patientList[patient_id] = newP;
     }
 
+    
     function previous_dates(uint256 patient_id, string memory _previous) public isOwner {
         Prev memory newPr = Prev({
             patient_id: patient_id,
@@ -91,11 +93,13 @@ contract Body_Examine is ERC721Enumerable {
         prevDates[patient_id] = newPr;
     }
 
+    
     function get_previous_dates(uint256 patient_id) public view returns (string memory) {
         Prev memory pr = prevDates[patient_id];
         return pr.previous;
     }
 
+   
     function investigations(
         uint256 patient_id,
         string memory _blood_test,
@@ -119,6 +123,7 @@ contract Body_Examine is ERC721Enumerable {
         patientTests[patient_id] = newT;
     }
 
+    
     function get_investigations(uint256 patient_id)
         public
         view
@@ -136,6 +141,7 @@ contract Body_Examine is ERC721Enumerable {
         return (t.blood_test, t.urine_test, t.ecg, t.mri_scan, t.ct_scan, t.xray, t.lab_test);
     }
 
+    
     function general_examin(
         uint256 patient_id,
         string memory _built,
@@ -161,6 +167,7 @@ contract Body_Examine is ERC721Enumerable {
         scanTests[patient_id] = newS;
     }
 
+    
     function get_general_examin(uint256 patient_id)
         public
         view
@@ -179,6 +186,7 @@ contract Body_Examine is ERC721Enumerable {
         return (s.built, s.nouirishment, s.eyes, s.tongue, s.pulse, s.blood_pressure, s.temp, s.respiratory_rate);
     }
 
+    
     function sys_examin(
         uint256 patient_id,
         string memory _cvs,
@@ -196,6 +204,7 @@ contract Body_Examine is ERC721Enumerable {
         systemExams[patient_id] = newSys;
     }
 
+    
     function get_sys_examin(uint256 patient_id) public view returns (string memory, string memory, string memory, string memory) {
         SystemEx memory sys = systemExams[patient_id];
         return (sys.cns, sys.cvs, sys.rs, sys.abdomen);
