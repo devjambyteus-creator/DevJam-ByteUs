@@ -1,0 +1,217 @@
+<html>
+<head>
+<title>Register Patient</title>
+<link rel="icon" href="blockchain.png" type="image/icon type">
+</head>
+    <body>
+	<p><a href="hospital.html"><button type="submit" class="hidden" style='margin-right:16px'>Hospital Registration</button></a><a href="doctor.html"><button type="submit" class="hidden" style='margin-right:16px'>Doctor Registration</button></a><a href="patient_details.html"><button type="submit" class="hidden" style='margin-right:16px'>View Patient Details</button></a><a href="record_details.html"><button type="submit" class="hidden" style='margin-right:16px'>View Medical Record</button></a><a href="examine_details.html"><button type="submit" class="hidden" style='margin-right:16px'>View Patient Examine details</button></a></p>
+      
+        <h1>Patient Registration</h1>
+        <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
+			}
+		else if (window.web3) {
+			window.web3 = new Web3(web3.currentProvider);
+			}
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+        var abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "patient_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_attendant_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_attendant_relation",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_attendant_phn_no",
+				"type": "uint256"
+			}
+		],
+		"name": "store_attendant_details",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "patient_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_patient_name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_age",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_gender",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_height",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_weight",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_patient_address",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_phone_no",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_email_id",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_date",
+				"type": "uint256"
+			}
+		],
+		"name": "store_patient_details",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+    {
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "patient_id",
+				"type": "uint256"
+			}
+		],
+		"name": "retreive_attendant_details",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "patient_id",
+				"type": "uint256"
+			}
+		],
+		"name": "retreive_patient_details",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
