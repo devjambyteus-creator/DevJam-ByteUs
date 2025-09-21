@@ -1,0 +1,330 @@
+<html>
+
+<head>
+    <title> Doctor Details</title>
+    <link rel="icon" href="BlockChain.png" type="image/icon type">
+</head>
+
+<body>
+    <p><a href="hospital.html"><button type="submit" class="hidden" style="margin-right: 16px;">Hospital
+                Registration</button></a><a href="doctor.html"><button type="submit" class="hidden"
+                style="margin-right: 16px;">Doctor Registration</button></a><a href="patient.html"><button type="submit"
+                class="hidden" style="margin: right 16px;">Patient Registration</button></a><a
+            href="patient_details.html"><button type="submit" class="hidden" style="margin-right: 16px;">View Patient
+                Details</button></a><a href="record_details.html"><button type="submit" class="hidden"
+                style="margin-right: 16px;">View Medical Record</button></a><a href="examine_details.html"><button
+                type="submit" class="hidden" style="margin-right: 16px;"></button>View Patient Details</a></p>
+    <h1> Display Doctor Details</h1>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>
+        var account;
+        window.addEventListener('load', async () => {
+
+            if (typeof window.ethereum !== 'undefined') {
+                console.log("MetaMask is Avalible :) !");
+            }
+
+            if (window.ethereum) {
+                window.web3 = new Web3(ethereum);
+
+                ethereum.autoRefreshNetworkChange = false;
+
+                const accounts = await ethereum.enable()
+                account = accounts[0]
+            }
+
+
+            else if (window.web3) {
+                window.web3 = new Web3(web3.currentProvider);
+            }
+
+
+            else {
+                console.log("Non-Ethereum browser detected. Please install MetaMask");
+            }
+
+
+        })
+
+        var abi = [
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint16",
+                        "name": "doctor_id",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_doctor_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_doctor_specialisation",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "_doctor_ph_no",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_doctor_address",
+                        "type": "string"
+                    }
+                ],
+                "name": "store_doctor_details",
+                "outputs": [],
+                "sateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "stateMutability": "nonpayble",
+                "type": "contructor"
+            },
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
