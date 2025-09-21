@@ -769,4 +769,157 @@
         
     }
 ]
+        var contractaddress = '0x72dC8eF00317BE1C6b4BB08EaAbA57771f6eA741';
+         function prev_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '5000000'});
+            var ds1 = document.getElementById("dates1").value;
+            var id = document.getElementById("id0").value;
+             var result = myContract.methods.previous_dates(id,ds1).send(function (err, result) {
+                if (err) { console.log(err); }
+                });
+                }
+                function insu_details() {
+            var myContract= new web3.eth.Contract(abi,contractaddress, {rom: account, gasPrice: '5000000', gas: '5000000'});
+            var id = document.getElementById("id1").value;
+            var ids1 = document.getElementById("appl").value;
+            var ids2 = document.getElementById("pono").value;
+            var ids3 = document.getElementById("ins").value;
+            var ids4 = document.getElementById("type").value;
+            var ids5 = document.getElementById("lim").value;
+            var iid = document.getElementById("id1").value;
+            var pd1 = document.getElementById("com").value;
+            var pd2 = document.getElementById("dur").value;
+            var prid = document.getElementById("id2").value;
+            var pad1 = document.getElementById("fam").value;
+            var pad2 = document.getElementById("per").value;
+            var pad3 = document.getElementById("drug").value;
+            var pid = document.getElementById("id3").value;
+            var dd1 = document.getElementById("diag").value;
+            var dd2 = document.getElementById("pre").value;
+            var dpid = document.getElementById("id4").value;
+            var td1 = document.getElementById("treat").value;
+            var td2 = document.getElementById("date").value;
+            var td3 = document.getElementById("doc").value;
+            var td4 = document.getElementById("hos").value;
+            var td5 = document.getElementById("dis").value;
+            var td6 = document.getElementById("fol").value;
+            var tpid = document.getElementById("id5").value;
+             var result = myContract.methods.medical_record(id).send(function (err, result){
+                if (err) { console.log(err); }
+                });
+             var result = myContract.methods.insurance_details(iid,ids1,ids2,ids3,ids4,ids5).send(function (err, result){
+
+                if (err) { console.log(err); }
+                });
+             var result = myContract.methods.insurance_details(prid,pd1,pd2).send(function (err, result){
+
+                if (err) { console.log(err); }
+                });
+             var result = myContract.methods.insurance_details(pid, pad1, pad2, pad3).send(function (err, result){
+
+                if (err) { console.log(err); }
+                });
+             var result = myContract.methods.insurance_details(dpid,dd1,dd2).send(function (err, result){
+
+                if (err) { console.log(err); }
+                });
+             var result = myContract.methods.insurance_details(tpid,td1,td2,td3,td4,td5,td6).send(function (err, result){
+
+                if (err) { console.log(err); }
+                });
+
+        }
+
+        </script>
+
+       <h2>Previous dates of medical record updated</h2>
+    <div><form>
+        <table style="width:100%">
+            <tr>
+            <td>Enter Patient Id</td>
+            <td><input type="text" id="id0" name="id0"></td>
+        </tr>
+            <tr>
+            <td> Dates:</td>
+            <td><input type="text" id="dates1" name="dates1".</td>
+        </tr>
+
+
+
+
+        </table>
+        <input type="button" onclick="prev_details()" value="Submit">
+    </form></div>
+        <h2>Insurance Details</h2>
+    <div><form>
+        <table style="width:100%">
+            <tr>
+            <td>Enter Record Id</td>
+            <td><input type="text" id="id1"name="id1"></td>
+        </tr>
+            <tr>
+            <td>Is Insurance applicable?(yes/no)</td>
+            <td><input type="text" id="appl"name="appl"></td>
+        </tr>
+            <tr>
+            <td>Policy Number:</td>
+            <td><input type="text" id="pono"name="pono"></td>
+        </tr>
+            <tr>
+            <td>Insurer</td>
+            <td><input type="text" id="ins"name="ins"></td>
+        </tr>
+            <tr>
+            <td>Policy Type</td>
+            <td><input type="text" id="type"name="type"></td>
+        </tr>
+            <tr>
+            <td>Policy Limit</td>
+            <td><input type="text" id="lim"name="lim"></td>
+        </tr>
+        </table>
+    </form></div>
+    <h2> Present Illness Details</h2>
+    <div><form>
+        <table style="width:100%">
+            <tr>
+            <td>Enter Record Id:</td>
+            <td><input type="text" id="id2" name="id2"></td>
+        </tr>
+            <tr>
+            <td>Complaints:</td>
+            <td><input type="text" id="com" name="com"></td>
+        </tr>
+            <tr>
+            <td>Duration:</td>
+            <td><input type="text" id="dur" name="dur"></td>
+        </tr>
+        </table>
+    </form></div>
+    <h2> Past Illness Details</h2>
+    <div><form>
+        <table style="width:100%">
+            <tr>
+            <td>Enter Record Id:</td>
+            <td><input type="text" id="id2" name="id2"></td>
+        </tr>
+            <tr>
+            <td>Enter Record Id:</td>
+            <td><input type="text" id="id2" name="id2"></td>
+        </tr>
+            <tr>
+            <td>Enter Record Id:</td>
+            <td><input type="text" id="id2" name="id2"></td>
+        </tr>
+            <tr>
+            <td>Enter Record Id:</td>
+            <td><input type="text" id="id2" name="id2"></td>
+        </tr>
+        </table>
+    </form></div>
+
+
+         
+
+            
 
