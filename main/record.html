@@ -56,7 +56,7 @@
                 "internalType": "address",
                 "name": "approved",
                 "type": "address"
-            }
+            },
             {
                 "indexed": true,
                 "internalType": "uint256",
@@ -841,7 +841,7 @@
         </tr>
             <tr>
             <td> Dates:</td>
-            <td><input type="text" id="dates1" name="dates1".</td>
+            <td><input type="text" id="dates1" name="dates1"></td>
         </tr>
 
 
@@ -901,22 +901,140 @@
         <table style="width:100%">
             <tr>
             <td>Enter Record Id:</td>
-            <td><input type="text" id="id2" name="id2"></td>
+            <td><input type="text" id="id3" name="id3"></td>
         </tr>
             <tr>
-            <td>Enter Record Id:</td>
-            <td><input type="text" id="id2" name="id2"></td>
+            <td>Family History:</td>
+            <td><input type="text" id="fam" name="fam"></td>
         </tr>
             <tr>
-            <td>Enter Record Id:</td>
-            <td><input type="text" id="id2" name="id2"></td>
+            <td>Personal History:</td>
+            <td><input type="text" id="per" name="per"></td>
         </tr>
             <tr>
-            <td>Enter Record Id:</td>
-            <td><input type="text" id="id2" name="id2"></td>
+            <td>Drug History:</td>
+            <td><input type="text" id="drug" name="drug"></td>
         </tr>
         </table>
     </form></div>
+    <h2>Provisional Diagnosis Details</h2>
+    <div><form>
+        <table style="width:100%"> 
+            <tr>
+			<td>Enter Record Id:</td>
+			<td><input type="text" id="id4" name="id4"></td>
+		  </tr>
+            <tr>
+			<td> Diagnosis Summary:</td>
+			<td><input type="text" id="diag" name="diag"></td>
+		  </tr>
+		  <tr>
+			<td>Prescription:</td>
+			<td><input type="text" id="pre" name="pre"></td>
+		  </tr>
+		</table>
+    </form></div>
+    <h2>Treatment Summary</h2>
+    <div><form>
+		<table style="width:100%"> 
+            <tr>
+			<td>Enter Record Id:</td>
+			<td><input type="text" id="id5" name="id5"></td>
+		  </tr>
+            <tr>
+			<td> Treatment:</td>
+			<td><input type="text" id="treat" name="treat"></td>
+		  </tr>
+		  <tr>
+			<td>Date of Treatment:</td>
+			<td><input type="text" id="date" name="date"></td>
+		  </tr>
+		   
+		   <tr>
+			<td>Treated Doctor Id:</td>
+			<td><input type="text" id="doc" name="doc"></td>
+		  </tr>
+            <tr>
+			<td>Treated Hospital Id:</td>
+			<td><input type="text" id="hos" name="hos"></td>
+		  </tr>
+		  <tr>
+			<td>Discharge:</td>
+			<td><input type="text" id="dis" name="dis"></td>
+		  </tr>  
+			<tr>
+			<td>Follow Up:</td>
+			<td><input type="text" id="fol" name="fol"></td>
+		  </tr>	
+		</table>
+		
+	</form></div>
+        
+		 <div><form>
+		<table style="width:100%"> 
+		<tr>
+		  <td><input type="button" onclick="insu_details()" value="Submit"></td>
+		  </tr>
+		  </table>
+		
+	</form></div>
+	<style>
+		* {
+		  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+			Helvetica Neue, Ubuntu, sans-serif;
+		  text-align: center;
+		  margin-top: 2%;
+  
+		}
+		input[type="text"],
+		select {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+  
+		input[type="button"] {
+		  width: 60%;
+		  background-color: #4caf50;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 20px 30px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+  
+		input[type="button"]:hover {
+		  background-color: #45a049;
+		}
+  
+		div {
+		  border-radius: 5px;
+		  margin-left: 20%;
+		  margin-right: 20%;
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		}
+  
+		button {
+		  border: 2px solid black;
+		  background-color: white;
+		  color: black;
+		  padding: 14px 28px;
+		  font-size: 16px;
+		  cursor: pointer;
+		}
+		button:hover {
+		  background-color: black;
+		  color: white;
+		}
+	  </style>
+    </body>
+</html>
 
 
          
