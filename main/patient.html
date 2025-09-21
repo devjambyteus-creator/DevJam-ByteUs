@@ -215,3 +215,179 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
+]
+        var contractaddress = '0x72dC8eF00317BE1C6b4BB08EaAbA57771f6eA741';
+        
+        function add_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '5000000'});
+			var ds1 = document.getElementById("age").value;
+			var ds2 = document.getElementById("gen").value;
+			var ds3 = document.getElementById("hght").value;
+			var ds4 = document.getElementById("weig").value;
+			var ds5 = document.getElementById("addr").value;
+			var ds6 = document.getElementById("pno").value;
+			var ds7 = document.getElementById("email").value;
+			var ds8 = document.getElementById("date").value;
+            var tname = document.getElementById("name1").value;
+            var id = document.getElementById("id1").value;
+			var ads1 = document.getElementById("rel").value;
+			var ads2 = document.getElementById("apno").value;
+			var aname = document.getElementById("aname1").value;
+			var aid = document.getElementById("id2").value;
+             var result = myContract.methods.store_patient_details(id,tname,ds1,ds2,ds3,ds4,ds5,ds6,ds7,ds8).send(function (err, result) {
+               
+                if (err) { console.log(err); }
+               
+                });
+        
+			
+             var result = myContract.methods.store_attendant_details(aid,aname,ads1,ads2).send(function (err, result) {
+               
+                if (err) { console.log(err); }
+               
+                });
+        }
+		
+		
+        </script>
+
+       
+        <h2>Register Patient</h2>
+    <div><form>
+		<table style="width:100%"> 
+            <tr>
+			<td>Enter Patient Id:</td>
+			<td><input type="text" id="id1" name="id1"></td>
+		  </tr>
+            <tr>
+			<td> Patient Name:</td>
+			<td><input type="text" id="name1" name="name1"></td>
+		  </tr>
+		  <tr>
+			<td>Age:</td>
+			<td><input type="text" id="age" name="age"></td>
+		  </tr>
+		   
+		   <tr>
+			<td>Gender:</td>
+			<td><input type="text" id="gen" name="gen"></td>
+		  </tr>
+            <tr>
+			<td>Height(in ft):</td>
+			<td><input type="text" id="hght" name="hght"></td>
+		  </tr>
+		  <tr>
+			<td>Weight(in kg):</td>
+			<td><input type="text" id="weig" name="weig"></td>
+		  </tr>
+		  <tr>
+			<td>Address:</td>
+			<td><input type="text" id="addr" name="addr"></td>
+		  </tr>
+		  <tr>
+			<td>Phone Number:</td>
+			<td><input type="text" id="pno" name="pno"></td>
+		  </tr>
+		  <tr>
+			<td>Email Id:</td>
+			<td><input type="text" id="email" name="email"></td>
+		  </tr>
+		  <tr>
+			<td>Date:</td>
+			<td><input type="text" id="date" name="date"></td>
+		  </tr>
+          		 
+		</table>
+		
+	</form></div>
+	<h2> Patient's Attendant Details</h2>
+    <div><form>
+		<table style="width:100%"> 
+            <tr>
+			<td>Enter Patient Id:</td>
+			<td><input type="text" id="id2" name="id2"></td>
+		  </tr>
+            <tr>
+			<td> Attendant Name:</td>
+			<td><input type="text" id="aname1" name="aname1"></td>
+		  </tr>
+		  <tr>
+			<td>Attendant Relation:</td>
+			<td><input type="text" id="rel" name="rel"></td>
+		  </tr>
+		   
+		   <tr>
+			<td>Phone Number:</td>
+			<td><input type="text" id="apno" name="apno"></td>
+		  </tr>
+                      
+		</table>
+		</form></div>
+		  <div><form>
+		<table style="width:25%">
+		 
+		
+		 
+		  </table>
+		  <input type="button" onclick="add_details()" value="Register">
+		</form></div>
+		
+	
+        <h3>To get details of a patient  <a href="patient_details.html">Click Here</a></h3>
+		<style>
+			* {
+			  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+				Helvetica Neue, Ubuntu, sans-serif;
+			  text-align: center;
+			  margin-top: 2%;
+	  
+			}
+			input[type="text"],
+			select {
+			  width: 100%;
+			  padding: 12px 20px;
+			  margin: 8px 0;
+			  display: inline-block;
+			  border: 1px solid #ccc;
+			  border-radius: 4px;
+			  box-sizing: border-box;
+			}
+	  
+			input[type="button"] {
+			  width: 60%;
+			  background-color: #4caf50;
+			  color: white;
+			  padding: 14px 20px;
+			  margin: 20px 30px;
+			  border: none;
+			  border-radius: 4px;
+			  cursor: pointer;
+			}
+	  
+			input[type="button"]:hover {
+			  background-color: #45a049;
+			}
+	  
+			div {
+			  border-radius: 5px;
+			  margin-left: 20%;
+			  margin-right: 20%;
+			  background-color: #f2f2f2;
+			  padding: 20px;
+			}
+	  
+			button {
+			  border: 2px solid black;
+			  background-color: white;
+			  color: black;
+			  padding: 14px 28px;
+			  font-size: 16px;
+			  cursor: pointer;
+			}
+			button:hover {
+			  background-color: black;
+			  color: white;
+			}
+		  </style>
+    </body>
+</html>
