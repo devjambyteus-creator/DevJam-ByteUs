@@ -12,3 +12,101 @@
 	
 	var account;
 	window.addEventListener('load', async () => {
+
+        if (typeof window.ethereum !== 'undefined') {
+            console.log("MetaMask is Available :) !");
+        }
+
+        if (window.ethereum) {
+            window.web3 = new Web3(ethereum);
+
+
+            ethereum.autoRefreshOnNetworkChange = false;
+            const accounts = await ethereum.enable();
+            account = accounts[0];
+
+        }
+        else if (window.web3) {
+            window.web3 = new Web3(web3.currentProvider);
+
+        }
+        else {
+            console.log('Non-Ethereum browser detected. Please install MetaMask');
+
+        }
+         });
+        var abi = [
+    {
+        "inputs": [],
+        "stateMutability" : "nonpayable",
+        "type" : "constructor"
+
+    },
+    {
+        "anonymous" : false,
+        "inputs" : [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "approved",
+                "type": "address"
+            }
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name" : "Approval",
+        "type" : "event"
+    },
+    {
+        "anonymous" : false,
+        "inputs" : [
+            {
+                "indexed" : true,
+                "internalType" : "address",
+                "name" : "owner",
+                "type" : "address"
+            },
+            {
+                "indexed" : true,
+                "internalType" : "address",
+                "name" : "operator",
+                "type" : "address"
+            },
+            {
+                "indexed" : true,
+                "internalType": "bool",
+                "name": "approved",
+                "type": "bool"
+            }
+        ],
+        "name" : "ApprovalForAll",
+        "type" : "event"
+    },
+    {
+        "input": [
+            {
+                "internalType" : "uint256",
+                "name" : "to",
+                "type" : "address"
+            },
+            {
+                "internalType" : "uint256",
+                "name" : "tokenId",
+                "type" : "uint256"
+            }
+        ],
+        
+    }
+
+        ]
+
