@@ -12,7 +12,7 @@ contract Doctor {
      doctor d;
      address owner;
       constructor()  public {
-          owner = 0xE6005Cc724c2d44F0aF23d663017a7E375DD7F35; //Address of Hospital
+          owner = msg.sender; //Address of Hospital
       }
       
      // modifier to give access only to hospital
@@ -40,4 +40,5 @@ contract Doctor {
      
      return (d.doctor_name,d.doctor_specialisation,d.doctor_ph_no,d.doctor_address);
           }           
+
 }
