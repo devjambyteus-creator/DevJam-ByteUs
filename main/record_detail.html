@@ -713,5 +713,337 @@
 		"stateMutability": "view",
 		"type": "function"
 	},
-    
+    {
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symboldecl",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+        var contractaddress = '0x72dC8eF00317BE1C6b4BB08EaAbA57771f6eA741';
+		
+		function date_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
+            var idd = document.getElementById("tid1").value;
+             var result = myContract.methods.get_previous_dates(idd).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_dates1").innerHTML = result;
+                }
+               
+                });
+        }
+		
+		function get_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '5000000'});
+            var idt = document.getElementById("tid").value;
+			
+			
+             var result = myContract.methods.get_insurance(idt).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_appl").innerHTML = result[0];
+					document.getElementById("get_pono").innerHTML = result[1];
+					document.getElementById("get_ins").innerHTML = result[2];
+					document.getElementById("get_type").innerHTML = result[3];
+					document.getElementById("get_lim").innerHTML = result[4];
+					
+					
+                }
+               
+                });
+				 var result = myContract.methods.get_present_illness(idt).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_com").innerHTML = result[0];
+					document.getElementById("get_dur").innerHTML = result[1];		
+					}
+               
+                });
+				 var result = myContract.methods.get_past_illness(idt).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_fam").innerHTML = result[0];
+					document.getElementById("get_per").innerHTML = result[1];
+					document.getElementById("get_drug").innerHTML = result[2];
+					
+					
+                }
+               
+                });
+				var result = myContract.methods.get_func_diagnosis(idt).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_diag").innerHTML = result[0];
+					document.getElementById("get_pre").innerHTML = result[1];				
+                }
+               
+                });
+				 var result = myContract.methods.get_treatment_summary(idt).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_treat").innerHTML = result[0];
+					document.getElementById("get_date").innerHTML = result[1];
+					document.getElementById("get_doc").innerHTML = result[2];
+					document.getElementById("get_hos").innerHTML = result[3];
+					document.getElementById("get_dis").innerHTML = result[4];
+					document.getElementById("get_fol").innerHTML = result[5];
+                }
+               
+                });
+				}
+				
+        
+       
+		
+		
+        </script>
+		 <h3>To update details of a patient medical record  <a href="record.html">Click Here</a></h3>
+		
+<h3>Previous dates of medical record updated</h3>
+<div>
+        <form>
+		<table style="width:100%">
+		  <tr>
+			<td>Enter Patient Id:</td>
+			<td><input type="text" id="tid1" name="tid1"></td>
+		  </tr>
+		 
+            <tr>
+			<td> Dates:</td>
+			<td><div id="get_dates1"></div></td>
+		  </tr>
+		  
+		</table>
+		<input type="button" onclick="date_details()" value="Get Details">
+        </form>  
+	</div>
+		<h2>Patient Medical Record Details</h2>
+		<div>
+        <tr>
+			<td>Enter Record Id:</td>
+			<td><input type="text" id="tid" name="tid"></td>
+		  </tr>
+		  
+		 <tr><td><input type="button" onclick="get_details()" value="Get Details"></td></tr>
+		</div>
+        <h2>Insurance Details</h2>
+    <div><form>
+		<table style="width:100%">
+            
+            <tr>
+			<td> Is Insurance applicable?(yes/no):</td>
+			<td><div id="get_appl"></div></td>
+		  </tr>
+		  <tr>
+			<td>Policy Number:</td>
+			<td><div id="get_pono"></div></td>
+		  </tr>
+		   
+		   <tr>
+			<td>Insurer:</td>
+			<td><div id="get_ins"></div></td>
+		  </tr>
+            <tr>
+			<td>Policy Type:</td>
+			<td><div id="get_type"></div></td>
+		  </tr>
+		  <tr>
+			<td>Policy Limit:</td>
+			<td><div id="get_lim"></div></td>
+		  </tr> 
+		</table>
+		
+		
+	</form>
+</div>
+	<h2> Present Illness Details</h2>
+	<div>
+    <form>
+		<table style="width:100%"> 
+            
+            <tr>
+			<td> Complaints:</td>
+			<td><div id="get_com"></div></td>
+		  </tr>
+		  <tr>
+			<td>Duation:</td>
+			<td><div id="get_dur"></div></td>
+		  </tr>
+		</table>
+	</form>
+</div>
+	<h2> Past Illness Details</h2>
+	<div>
+    <form>
+		<table style="width:100%">
+           
+            <tr>
+			<td> Family History:</td>
+			<td><div id="get_fam"></div></td>
+		  </tr>
+		  <tr>
+			<td>Personal History:</td>
+			<td><div id="get_per"></div></td>
+		  </tr>
+		  <tr>
+			<td>Drug History:</td>
+			<td><div id="get_drug"></div></td>
+		  </tr>
+		  </table>
+	</form>
+</div>
+	<h2> Provisional Diagnosis Details</h2>
+	<div>
+    <form>
+		<table style="width:100%">
+           
+            <tr>
+			<td> Diagnosis Summary:</td>
+			<td><div id="get_diag"></div></td>
+		  </tr>
+		  <tr>
+			<td>Prescription:</td>
+			<td><div id="get_pre"></div></td>
+		  </tr>
+		</table>
+		
+		
+	</form>
+</div>
+        <h2>Treatment Summary</h2>
+		<div>
+    <form>
+		<table style="width:100%">
+            
+            <tr>
+			<td> Treatment:</td>
+			<td><div id="get_treat"></div></td>
+		  </tr>
+		  <tr>
+			<td>Date of Treatment:</td>
+			<td><div id="get_date"></div></td>
+		  </tr>
+		   
+		   <tr>
+			<td>Treated Doctor Id:</td>
+			<td><div id="get_doc"></div></td>
+		  </tr>
+            <tr>
+			<td>Treated Hospital Id:</td>
+			<td><div id="get_hos"></div></td>
+		  </tr>
+		  <tr>
+			<td>Discharge:</td>
+			<td><div id="get_dis"></div></td>
+		  </tr>  
+			<tr>
+			<td>Follow Up:</td>
+			<td><div id="get_fol"></div></td>
+		  </tr>		  
+		</table>
+	</form>
+</div>
+	<style>
+		* {
+		  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+			Helvetica Neue, Ubuntu, sans-serif;
+		  text-align: center;
+		  margin-top: 2%;
+  
+		}
+		input[type="text"],
+		select {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+  
+		input[type="button"] {
+		  width: 60%;
+		  background-color: #4caf50;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 20px 30px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+  
+		input[type="button"]:hover {
+		  background-color: #45a049;
+		}
+  
+		div {
+		  border-radius: 5px;
+		  margin-left: 20%;
+		  margin-right: 20%;
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		}
+  
+		button {
+		  border: 2px solid black;
+		  background-color: white;
+		  color: black;
+		  padding: 14px 28px;
+		  font-size: 16px;
+		  cursor: pointer;
+		}
+		button:hover {
+		  background-color: black;
+		  color: white;
+		}
+	  </style>
+    </body>
+</html>
         
