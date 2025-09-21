@@ -85,246 +85,168 @@
                 "stateMutability": "nonpayble",
                 "type": "contructor"
             },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint16",
+                        "name": "doctor_id",
+                        "type": "uint16"
+                    }
+                ],
+                "name": "retrieve_dcotor_details",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint16",
+                        "name": "",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ]
+        var contractaddress = '0x72dC8eF00317BE1C6b4BB08EaAbA57771f6eA741';
 
+        function add_details() {
+            var myContract = new web3.eth.Contract(abi, contractaddress, { from: account, gasPrice: '5000000', gas: '500000' });
+            var ds1 = document.getElementById("spec").value;
+            var ds2 = document.getElementById("pno").value;
+            var ds3 = document.getElementById("addr").value;
+            var tname = document.getElementById("name1").value;
+            var id = document.getElementById("id1").value;
+            var result = myContract.methods.store_doctor_details(id, tname, ds1, ds2, ds3).send(function (err, result) {
 
+                if (err) { console.log(err); }
+                if (result) { document.getElementById("result").innerHTML = result; }
 
+            });
+        }
+        function show_details() {
+            var myContract = new web3.eth.Contract(abi, contractaddress, { from: account, gasPrice: '5000000', gas: '500000' });
+            var idd = document.getElementById("tid").value;
+            var result = myContract.methods.retreive_doctor_details(idd).call(function (err, result) {
 
+                if (err) { console.log(err); }
+                if (result) {
+                    document.getElementById("get_name").innerHTML = result[0];
+                    document.getElementById("get_spec").innerHTML = result[1];
+                    document.getElementById("get_pno").innerHTML = result[2];
+                    document.getElementById("get_addr").innerHTML = result[3];
+                }
 
-
-
-
-
-
-
+            });
+        }
     </script>
+    <h3>Doctor Details:</h3>
+    <div>
+        <form>
+            <table style="width:100%">
+                <tr>
+                    <td>Enter Doctor Id:</td>
+                    <td><input type="text" id="tid" name="tid"></td>
+                </tr>
 
+                <tr>
+                    <td> Doctor Name:</td>
+                    <td>
+                        <div id="get_name"></div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>Doctor Specification:</td>
+                    <td>
+                        <div id="get_spec"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Doctor Phone Number:</td>
+                    <td>
+                        <div id="get_pno"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Doctor Address:</td>
+                    <td>
+                        <div id="get_addr"></div>
+                    </td>
+                </tr>
+            </table>
+            <input type="button" onclick="show_details()" value="Get Details">
+        </form>
+    </div>
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+                Helvetica Neue, Ubuntu, sans-serif;
+            text-align: center;
+            margin-top: 2%;
 
+        }
 
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
+        input[type="button"] {
+            width: 60%;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 20px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
 
+        div {
+            border-radius: 5px;
+            margin-left: 20%;
+            margin-right: 20%;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
 
+        button {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
